@@ -1,23 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react'
+import { Switch, Route } from 'react-router-dom'
+import JobDetailPage from './pages/JobDetailPage'
+import JobListPage from './pages/JobListPage'
+
 
 function App() {
+  // const [jobList, setJobList] = useState(null)
+  // const [searchString, setSearchString] = useState(null)
+
+
+  // function submitSearch() {
+  //   console.log(searchString)
+  //   const query = searchString.replace(" ", "+")
+  //   console.log(query)
+  //   fetch(`/positions.json?description=${query}`)
+  //   .then(res => res.json())
+  //   .then(data => setJobList(data))
+    
+  // }
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {/* <input type="text" onChange={e => setSearchString(e.target.value)}/>
+      <button onClick={submitSearch}>Search</button> */}
+
+      {/* {jobList && <JobListPage jobList={jobList} />} */}
+    
+      <Switch>
+
+      <Route path="/positions/:id" component={JobDetailPage} />
+      <Route path="/" component={JobListPage} />
+    
+      </Switch>
     </div>
   );
 }
